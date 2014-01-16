@@ -11,7 +11,7 @@ div#centerpage
 header.banner > section.logo
 {
     font-size: xx-large; font-weight: bold;
-    height: 60px; padding-top 30px;
+    height: 60px; padding-top: 30px;
     text-align: center;
 }
 header.banner nav
@@ -19,12 +19,13 @@ header.banner nav
     background-color: darkblue;
     margin-left:  auto; margin-right: auto;
     white-space: nowrap;
+    text-align: center;
 }
 header.banner > nav a:link
 {
     text-decoration: none;
     color: white;
-    margin-right: 60px;
+    margin-right: 50px;
 }
 header.banner > nav a:hover
 {
@@ -32,22 +33,30 @@ header.banner > nav a:hover
 }
 section#main
 {
+    height: 500px;
     overflow: hidden;
     background-color: : #def;
 }
 section#main > nav
 {
-    
+    background-color: lightgrey;   
     float: left;
-    top-margin: 2em
+    /*top-margin: 2em */
 }
 section#main > nav > ul
 {
+    margin:0;
+    margin-bottom: 10em;
+    padding-left: 0;
+    padding-right: 2em;
+
+    text-align: left;
     list-style-type: none;
 }
 section#main > article
 {
-    width: 69%; float: left;
+    width: 69%;
+    float: left;
     background-color: white;
     padding-left: 2em;
     border: 1px solid black;
