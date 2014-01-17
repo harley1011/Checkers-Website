@@ -51,16 +51,13 @@ section#main > nav > ul
     padding-top: 0;
     margin:top: 0;
     margin-bottom: 10em;
-<<<<<<< HEAD
     padding-left: 1em;
     padding-right: 1em;
 
     text-align: center;
-=======
     padding-left: 0;
     padding-right: 2em;
     text-align: left;
->>>>>>> dca288556976645ef42c6d7bb9e9150d68be632d
     list-style-type: none;
 }
 section#main > nav > ul > li
