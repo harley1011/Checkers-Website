@@ -33,30 +33,38 @@ header.banner > nav a:hover
 }
 section#main
 {
-    height: 500px;
+    min-height: 500px;
     overflow: hidden;
     background-color: : #def;
 }
 section#main > nav
 {
-    background-color: lightgrey;   
+    /*background-color: lightgrey; */
+    border: 1px solid black;   
     float: left;
-    /*top-margin: 2em */
+    width: 7em;
 }
 section#main > nav > ul
 {
-    margin:0;
+    padding-top: 0;
+    margin:top: 0;
     margin-bottom: 10em;
-    padding-left: 0;
-    padding-right: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
 
-    text-align: left;
+    text-align: center;
     list-style-type: none;
+}
+section#main > nav > ul > li
+{
+    text-align: left;
+    margin-bottom: .25em;
 }
 section#main > article
 {
-    width: 69%;
-    float: left;
+    padding-top: 1em;
+    float:left;
+    width: 75%;
     background-color: white;
     padding-left: 2em;
     border: 1px solid black;
