@@ -1,22 +1,24 @@
 div#centerpage
 {
+    max-width: 800px;
     margin-left:auto; margin-right:auto; 
     margin-top: auto; margin-bottom: auto;
     width: 80%;
     height: 60%;
-    border: 2px solid darkblue;
+    border: 2px solid #7ABCF9;
     border-radius: 16px;
     overflow: hidden;
 }
 header.banner > section.logo
 {
-    font-size: xx-large; font-weight: bold;
+    font-size: xx-large; font-weight: bold; color: white;
     height: 60px; padding-top: 30px;
     text-align: center;
+    background-color: #3090C7;
 }
 header.banner nav
 {
-    background-color: darkblue;
+    background-color: #7ABCF9;
     margin-left:  auto; margin-right: auto;
     white-space: nowrap;
     text-align: center;
@@ -49,10 +51,16 @@ section#main > nav > ul
     padding-top: 0;
     margin:top: 0;
     margin-bottom: 10em;
+<<<<<<< HEAD
     padding-left: 1em;
     padding-right: 1em;
 
     text-align: center;
+=======
+    padding-left: 0;
+    padding-right: 2em;
+    text-align: left;
+>>>>>>> dca288556976645ef42c6d7bb9e9150d68be632d
     list-style-type: none;
 }
 section#main > nav > ul > li
@@ -67,6 +75,18 @@ section#main > article
     width: 75%;
     background-color: white;
     padding-left: 2em;
-    border: 1px solid black;
+}
+section#main > article > table 
+{
+
+}
+section#main > article > table > tr > td { 
+    height:50px;
+    width: 50px;
+    vertical-align:bottom;
+}
+ol#rules
+{
+    list-style-type:upper-alpha;
 }
 
