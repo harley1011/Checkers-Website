@@ -22,28 +22,22 @@
             </ul>
         </nav>
         <article>
-            <table border="1">
-                <tr>
-                    <td ></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-        </article>
-    </section>
+           <svg width="600" height="600">
+            <defs>
+                <pattern id="checkerPattern" width="150" height="150" patternUnits="userSpaceOnUse">
+                <rect fill="black" x="0" y="0" width="75" height="75" />
+                <rect fill="black" x="75" y="75" width="75" height="75" />
+                <rect fill="white" x="75" y="0" width="75" height="75" />
+                <rect fill="white" x="0" y="75" width="75" height="75" />
+            </pattern>
+        </defs>
+        <g transform="translate(0 ,0)">
+            <rect fill="url(#checkerPattern)" style="stroke:black" x="0"
+            y="0" width="600" height="600" />
+        </g>
+    </svg>
+</article>
+</section>
 </div>
 <footer>
     <p style="text-align: center">footer</p>
