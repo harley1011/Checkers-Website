@@ -10,38 +10,43 @@
                 <a href="index.html"><img src="images/checkerlogo.png" alt="checker logo" style="vertical-align: middle;" width ="50" height="50"/></a>
                 Checkers
             </section>
-            <nav><a href="rules.html">Rules</a>
-                <a href="#">SiteLink2</a>
-                <a href="#">SiteLink3</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="rules.html">Rules</a>
+                <a href="#">About</a>
             </nav>
         </header>
         <section id="main">
-            <nav><ul>
-                <li><a style="text-align: left" href="#">Profile</a></li>
-                <li><a href="#">View Game</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Profile</a></li>
+                    <li><a href="index.html">View Game</a></li>
+                </ul>
+            </nav>
+            <article>
+                <svg width="600" height="600">
+                    <defs>
+                        <pattern id="checkerPattern" width="150" height="150" patternUnits="userSpaceOnUse">
+                            <rect fill="black" x="0" y="0" width="75" height="75" />
+                            <rect fill="black" x="75" y="75" width="75" height="75" />
+                            <rect fill="white" x="75" y="0" width="75" height="75" />
+                            <rect fill="white" x="0" y="75" width="75" height="75" />
+                        </pattern>
+                    </defs>
+                    <g transform="translate(0 ,0)">
+                        <rect fill="url(#checkerPattern)" style="stroke:black" x="0"
+                        y="0" width="600" height="600" />
+                    </g>
+                </svg>
+            </article>
+        </section>
+    </div>
+    <footer>
+        <nav>
+            <a href="privacy.html">Privacy Statement</a>
+            <a href="contact.html">Contact Us</a>
         </nav>
-        <article>
-           <svg width="600" height="600">
-            <defs>
-                <pattern id="checkerPattern" width="150" height="150" patternUnits="userSpaceOnUse">
-                <rect fill="black" x="0" y="0" width="75" height="75" />
-                <rect fill="black" x="75" y="75" width="75" height="75" />
-                <rect fill="white" x="75" y="0" width="75" height="75" />
-                <rect fill="white" x="0" y="75" width="75" height="75" />
-            </pattern>
-        </defs>
-        <g transform="translate(0 ,0)">
-            <rect fill="url(#checkerPattern)" style="stroke:black" x="0"
-            y="0" width="600" height="600" />
-        </g>
-    </svg>
-</article>
-</section>
-</div>
-<footer>
-    <p style="text-align: center">footer</p>
-</footer>
+    </footer>
 </body>
 </html>
 
