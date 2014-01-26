@@ -1,5 +1,10 @@
+*
+{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
 div#centerpage
 {
+    min-width: 800px;
     max-width: 800px;
     margin-left:auto; margin-right:auto; 
     margin-top: auto; margin-bottom: auto;
@@ -99,6 +104,12 @@ footer > nav
     text-align: center;
     margin-right: auto;
     margin-left:  auto;
+}
+footer > nav > img 
+{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 
