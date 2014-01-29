@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/mainstyle.css" />
+    <script type="text/javascript">
+        function setTime()
+        {
+            setInterval(function(){getTime()},1000);
+        }
+        function getTime()
+        {
+            var _date = new Date();
+            var _dateFormat = _date.toDateString() + ' ' + _date.getHours() + 
+            ':' + _date.getMinutes() + ':' + _date.getSeconds();
+            document.getElementById("ptime").innerHTML = _dateFormat;
+        }
+</script>
 </head>
-<body id="top">
+<body id="top" onload="setTime()">
     <div id="centerpage">
         <header class="banner">
             <section class="logo"> 
                 <a href="index.html"><img src="images/checkerlogo.png" alt="checker logo" style="vertical-align: middle;" width ="50" height="50"/></a>
                 Checkers
             </section>
-            <nav>
+            <div>
                 <a href="index.html">Home</a>
                 <a href="rules.html">Rules</a>
-                <a href="#">About</a>
-            </nav>
+                <a href="#">About</a> 
+                 <label id="time">Current Time:            
+            </div>
         </header>
         <section id="main">
             <nav>
