@@ -23,25 +23,27 @@ header.banner > section.logo
     text-align: center;
     background-color: #3090C7;
 }
-header.banner > div > p
-{
-    text-align: right;
-    color: white;
-    font-size: small;
-
-}
 header.banner > div
 {
-    text-align: center;
+    color: white;
+    overflow: hidden;
     background-color: #7ABCF9;
-    margin-left:  auto; 
-    margin-right: auto;
+    text-align: center;
 }
-header.banner > div > a
+header.banner > div > nav
+{
+    width: 300px;
+    margin-left: 275px;
+}
+header.banner > div > nav > a
 {
     text-decoration: none;
-    color: white;
     margin-right: 50px;
+    color: white;
+}
+header.banner > div > label
+{
+    float: right;
 }
 section#main
 {
@@ -106,6 +108,25 @@ footer > nav > img
     width: 20px;
     height: 20px;
     vertical-align: middle;
+}
+tr:nth-child(even) {
+    background-color: #3090C7;
+}
+tr:nth-child(odd) {
+    background-color: #7ABCF9;
+}
+table
+{
+    border: solid lightgrey;
+    border-radius: 16px;
+    color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+section#main > table > tr > td > img 
+{
+    height: 5px;
+    width: 5px;
 }
 
 
