@@ -128,5 +128,25 @@ section#main > table > tr > td > img
     height: 5px;
     width: 5px;
 }
-
+#inputBox
+{
+    float: left;
+   
+}
+#labelBox
+{
+    float: left;
+    text-align: right;
+    margin-top: 2px;
+}
+#inputBox > input[type="text"]
+{
+    height: 15px;
+   
+}
+#inputBox > input[type="password"]
+{
+    height: 15px;
+   
+}
 

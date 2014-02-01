@@ -3,19 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/mainstyle.css" />
-    <script type="text/javascript">
-        function setTime()
-        {
-            setInterval(function(){getTime()},1000);
-        }
-        function getTime()
-        {
-            var _date = new Date();
-            var _dateFormat = _date.toDateString() + ' ' + _date.getHours() + 
-            ':' + _date.getMinutes() + ':' + _date.getSeconds();
-            document.getElementById("ptime").innerHTML = _dateFormat;
-        }
-    </script>
+
 </head>
 <body id="top" onload="setTime()">
     <div id="centerpage">
@@ -39,23 +27,16 @@
                     <li><a href="index.html">Profile</a></li>
                     <li><a href="index.html">View Game</a></li>
                     <li><a href="users.html">Users</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </nav>
             <article>
-                <svg width="600" height="600">
-                    <defs>
-                        <pattern id="checkerPattern" width="150" height="150" patternUnits="userSpaceOnUse">
-                            <rect fill="black" x="0" y="0" width="75" height="75" />
-                            <rect fill="black" x="75" y="75" width="75" height="75" />
-                            <rect fill="white" x="75" y="0" width="75" height="75" />
-                            <rect fill="white" x="0" y="75" width="75" height="75" />
-                        </pattern>
-                    </defs>
-                    <g transform="translate(0 ,0)">
-                        <rect fill="url(#checkerPattern)" style="stroke:black" x="0"
-                        y="0" width="600" height="600" />
-                    </g>
-                </svg>
+                 <input type="submit" value ="Start" onclick="drawPieces()"/>
+                <canvas id="checkerboard" width="640" height ="640"></br></br>
+               
+
+
+                </canvas>
             </article>
         </section>
     </div>
@@ -66,6 +47,8 @@
             <img src="images/chromelogo.jpg" alt="Chrome"/> 
         </nav>
     </footer>
+    <script src="javascripts/currenttime.js"></script>
+    <script type="text/javascript" src="javascripts/checkerboard.js"></script>
 </body>
 </html>
 
