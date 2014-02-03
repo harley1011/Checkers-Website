@@ -123,10 +123,10 @@ table
     border-collapse: collapse;
     border-spacing: 0;
 }
-section#main > table > tr > td > img 
+#tableimg
 {
-    height: 5px;
-    width: 5px;
+    height: 35px;
+    width: 35px;
 }
 #inputBox
 {

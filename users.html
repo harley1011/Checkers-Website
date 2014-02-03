@@ -3,19 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/mainstyle.css" />
-    <script type="text/javascript">
-        function setTime()
-        {
-            setInterval(function(){getTime()},1000);
-        }
-        function getTime()
-        {
-            var _date = new Date();
-            var _dateFormat = _date.toDateString() + ' ' + _date.getHours() + 
-            ':' + _date.getMinutes() + ':' + _date.getSeconds();
-            document.getElementById("ptime").innerHTML = _dateFormat;
-        }
-    </script>
+    <script src="javascripts/currenttime.js"></script>
+    <script src="javascripts/validateform.js"></script>
 </head>
 <body id="top" onload="setTime()">
     <div id="centerpage">
@@ -39,32 +28,33 @@
                     <li><a href="index.html">Profile</a></li>
                     <li><a href="index.html">View Game</a></li>
                     <li><a href="users.html">Users</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </nav>
             <article>
             <table border="0">
             <tr>
-            <td><img src="images/defaultuserpicture.png" alt="pic"></td>
+            <td><img id="tableimg" src="images/defaultuserpicture.png" alt="pic"/></td>
             <td>Harley</td>
             <td> 10 Wins 5 Loses </td>
             <td><input type="submit" value="Challenge" /></td>
             </tr>
             <tr>
-            <td><img src="player1profilepic.jpg" alt="pic"></td>
-            <td>Harley</td>
-            <td> 10 Wins 5 Loses </td>
+            <td><img id="tableimg" src="images/defaultuserpicture.png" alt="pic"/></td>
+            <td>Tedd</td>
+            <td> 3 Wins 15 Loses </td>
             <td><input type="submit" value="Challenge" /></td>
             </tr>
             <tr>
-            <td><img src="player1profilepic.jpg" alt="pic"></td>
-            <td>Harley</td>
-            <td> 10 Wins 5 Loses </td>
+            <td><img id="tableimg" src="images/defaultuserpicture.png" alt="pic"/></td>
+            <td>Mike</td>
+            <td> 13 Wins 25 Loses </td>
             <td><input type="submit" value="Challenge" /></td>
             </tr>
             <tr>
-            <td><img src="player1profilepic.jpg" alt="pic"></td>
-            <td>Harley</td>
-            <td> 10 Wins 5 Loses </td>
+            <td><img  id="tableimg"src="images/defaultuserpicture.png" alt="pic"/></td>
+            <td>John</td>
+            <td> 13 Wins 15 Loses </td>
             <td><input type="submit" value="Challenge" /></td>
             </tr>
             </table>
