@@ -1,27 +1,13 @@
 var canvas = document.getElementById("checkerboard");
 var context = canvas.getContext("2d");
+context.fillStyle="black";
+context.fillRect(0,0,640,640);
+context.fillStyle= "grey";
 
 for( var r = 0; r < 8; r++)
 {
 	for ( var c = 0; c < 8; c++)
-	{
-		if ( r%2 == 0)
-		{
-			if ( c%2 == 0)
-				context.fillStyle= "black";
-			else
-				context.fillStyle= "grey";
-		}
-		else
-		{
-			if (  c%2 == 0)
-				context.fillStyle= "grey";
-			else
-				context.fillStyle= "black";
-		}
-		context.fillRect(80*c,80*r,80,80);
-
-	}
+		if ( (r+c)%2== 0 ) zcontext.fillRect(80*c,80*r,80,80);
 }
 function drawPieces()
 {
@@ -55,6 +41,6 @@ function drawCircle(x, y, r, t,a, color,canvas,context )
 {
 	context.fillStyle= color;
 	context.beginPath();
-	context.arc(x,y,r,0,a);
+	context. arc(x,y,r,0,a);
 	context.fill();	
 }

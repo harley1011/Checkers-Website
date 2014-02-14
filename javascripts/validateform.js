@@ -9,6 +9,11 @@ for(var i = 0; i < inputs.length; i +=1)
   	alert("The field " + errors[i] + " can not be blank." + i );
   	return false;
   }
+  if ( i == 2 && !inputs[2].value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))
+  {
+      alert("Invalid phone number.")
+      return false;
+  }
   if ( i == 3 )
   {
   	var x=inputs[i].value;
