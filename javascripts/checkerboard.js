@@ -7,7 +7,7 @@ context.fillStyle= "grey";
 for( var r = 0; r < 8; r++)
 {
 	for ( var c = 0; c < 8; c++)
-		if ( (r+c)%2== 0 ) zcontext.fillRect(80*c,80*r,80,80);
+		if ( (r+c)%2== 0 ) context.fillRect(80*c,80*r,80,80);
 }
 function drawPieces()
 {
