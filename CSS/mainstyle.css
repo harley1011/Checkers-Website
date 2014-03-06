@@ -30,10 +30,14 @@ header.banner > div
     background-color: #7ABCF9;
     text-align: center;
 }
+#login
+{
+    float: left;
+}
 header.banner > div > nav
 {
-    width: 300px;
-    margin-left: 275px;
+    width: 400px;
+    margin-left: 200px;
 }
 header.banner > div > nav > a
 {
@@ -45,6 +49,7 @@ header.banner > div > label
 {
     float: right;
 }
+
 section#main
 {
     min-height: 500px;

@@ -1,0 +1,6 @@
+fname:harley lname:mcphee phonenum:514-833-6651 email:harley.101@hotmail.com password:5monarchy
+fname:Donald lname:duck phonenum:232-232-2323 email:duck@gmail.com password:donaldduck
+fname:Charley lname:Diand phonenum:423-232-3233 email:charley@gmail.com password:charley1
+fname:user2 lname:user2 phonenum:232-2322-1223 email:user@gmail.com password:5monarchy
+fname:hkg lname:gdfs phonenum:fds email:fdgs@gmail.com password:5monarchy
+fname:ha lname:h phonenum:514-833-6651 email:harley.101@hotmail.com password:5monarchy

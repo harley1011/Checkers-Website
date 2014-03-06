@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,12 +35,17 @@
                 </ul>
             </nav>
             <article>
-                 <input type="submit" value ="Start" onclick="drawPieces()"/>
-                <canvas id="checkerboard" width="640" height ="640"></br></br>
-               
-
-
-                </canvas>
+            	<form name="myForm"  action="" method="post">
+                <div id="labelBox">
+                    E-mail:</br>
+                    Password:</br>
+                </div>
+                <div id="inputBox">
+                <input type="email"  name="email"/></br>
+                <input type="password"  name="password"/></br>
+                <input type="submit"  value="Login"/></br>
+                </div>
+            </form>
             </article>
         </section>
     </div>
@@ -52,5 +60,3 @@
     <script type="text/javascript" src="javascripts/checkerboard.js"></script>
 </body>
 </html>
-
-

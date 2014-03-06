@@ -6,6 +6,8 @@ global $fname, $lname, $phonenum, $email, $password, $passwordconfirm;
 global $errorMessage;
 	if(empty($_POST['fname']))
 		$errorMessage .= " First name is empty.";
+	else
+		$fname = $_POST['fname'];
 	if(empty($_POST['lname']))
 		$errorMessage .= " Last name is empty.";
 	if(empty($_POST['phonenum']))
