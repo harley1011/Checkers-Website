@@ -10,6 +10,7 @@ else
 	$fileText = file_get_contents("members.txt");
 	if (preg_match($pattern,$fileText) == 1 )
 	{
+	$_SESSION['email'] = $_POST['email'];
 	require_once("loginsuccess.php");
 	}
 	else
