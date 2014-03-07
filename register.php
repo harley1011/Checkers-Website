@@ -10,10 +10,16 @@ global $errorMessage;
 		$fname = $_POST['fname'];
 	if(empty($_POST['lname']))
 		$errorMessage .= " Last name is empty.";
+	else
+		$lname = $_POST['lname'];
 	if(empty($_POST['phonenum']))
 		$errorMessage .= " Phone number is empty.";
+	else
+		$phonenum = $_POST['phonenum'];
 	if(empty($_POST['email']))
 		$errorMessage .= " E-mail is empty.";
+	else
+		$email = $_POST['email'];
 	if(empty($_POST['password']))
 		$errorMessage .= " Password is empty.";
 	if(empty($_POST['passwordconfirm']))
@@ -22,6 +28,7 @@ global $errorMessage;
 		$errorMessage .= " Passwords do not match.";
 	elseif ( strlen($_POST['password']) < 8 )
 		$errorMessage .= " Password must be greater than 8 characters.";
+
 	return empty($errorMessage);
 
 }
