@@ -9,6 +9,5 @@
         </nav>
     </footer>
     <script src="javascripts/currenttime.js"></script>
-    <script type="text/javascript" src="javascripts/checkerboard.js"></script>
 </body>
 </html>

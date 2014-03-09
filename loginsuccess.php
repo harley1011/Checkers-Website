@@ -1,4 +1,7 @@
 <?php
+if(session_id() == '') {
+    session_start();
+}
 $_SESSION['email'] = $_POST['email'];
 require_once("headerlayout.php");
 ?>

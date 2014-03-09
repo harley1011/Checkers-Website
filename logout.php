@@ -1,7 +1,7 @@
 <?php
 session_start();
 $email = $_SESSION['email'];
-session_destroy();
+unset($_SESSION['email']);
 require_once("headerlayout.php");
 
 echo "You have logged out " . $email;

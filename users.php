@@ -4,7 +4,7 @@ require_once("headerlayout.php");
 <?php
 echo '<table border="0">';
 $file = fopen("members.txt", "r");
-$fileText = file_get_contents("members.txt");
+$fileText = file_get_contents("challenge.txt");
 if ($file) {
     while (($buffer = fgets($file)) !== false) {
         $emailArray = array();
@@ -21,7 +21,7 @@ if ($file) {
                 <td><img id="tableimg" src="images/defaultuserpicture.png" alt="pic"/></td>
                 <td>' . $email . '&nbsp;</td>
                 <td>' . $win . ' Wins ' . $loss . ' Loses </td>';
-                if (preg_match('/$email/',$fileText) == 1 )
+                if ((isset($_SESSION['email']) && preg_match('/' . $_SESSION['email'] . '/',$fileText) == 1 ) || preg_match('/' . $email . '/',$fileText) == 1)
                     echo '<td><form action="viewgame.php" method="post"><input type="submit" value="View Game" /><input type="hidden" name="email" value=" ' .  $email . '"/></td></form></tr>';
                 else
                     echo '<td><form action="challenge.php" method="post"><input type="submit" value="Challenge"/><input type="hidden" name="email" value=" ' .   $email . '"/></td></form></tr>';

@@ -1,12 +1,13 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/mainstyle.css" />
-
 </head>
 <body id="top" onload="setTime()">
     <div id="centerpage">
