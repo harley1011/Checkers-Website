@@ -4,24 +4,48 @@ var pieceSelected = false;
 var pieceSelectedColumn;
 var pieceSelectedRow;
 var pieceMoves = Array();
-var pieceMovesColumn = Array();
-var pieceMovesRow = Array();
+var selectedPieceMoves = Array();
 canvas.addEventListener('click', function(e){ selectPiece(e)}, false);
 var checkerboardArray = eval( "(" + document.getElementById("checkerboardarray").value + ")");
 function selectPiece(e)
 {
 	var rect = canvas.getBoundingClientRect();
-	var column = Math.ceil((e.clientX - rect.left) / 80) - 1;
-	var row = Math.ceil((e.clientY - rect.top) / 80) - 1;
+	var columnSelect = Math.ceil((e.clientX - rect.left) / 80) - 1;
+	var rowSelect = Math.ceil((e.clientY - rect.top) / 80) - 1;
 	var playerTurn = document.getElementById('playerturn').value;
-	if (pieceSelected && checkerboardArray[column][row] != playerTurn )
+	getAllMoves(playerTurn);
+
+	if (pieceSelected && checkerboardArray[columnSelect][rowSelect] != playerTurn)
 	{	
-		for ( var i=0; i < pieceMovesColumn.length; i++)
+		for ( var i=0; i < selectedPieceMoves.length; i++)
 		{
-			if (pieceMovesColumn[i] == column && pieceMovesRow[i] == row)
+			if (selectedPieceMoves[i].moveColumn == columnSelect && selectedPieceMoves[i].moveRow == rowSelect)
 			{
-				delete checkerboardArray[pieceSelectedColumn][pieceSelectedRow];
-				checkerboardArray[column][row] = playerTurn;
+				if ( selectedPieceMoves[i].move == "attack")
+				{
+						
+					if ( selectedPieceMoves[i].playerTurn == "player1")
+					{
+						if ( selectedPieceMoves[i].column == columnSelect - 2)
+							delete checkerboardArray[selectedPieceMoves[i].column - 1][selectedPieceMoves[i].Row +1];
+						else
+							delete checkerboardArray[selectedPieceMoves[i].column  + 1][selectedPieceMoves[i].Row +1];
+					}
+					else
+					{
+						if ( selectedPieceMoves[i].column == columnSelect - 2)
+							delete checkerboardArray[selectedPieceMoves[i].column  - 1][selectedPieceMoves[i].Row -1];
+						else
+							delete checkerboardArray[selectedPieceMoves[i].column  + 1][selectedPieceMoves[i].Row  -1];
+					}
+					delete checkerboardArray[selectedPieceMoves[i].column][selectedPieceMoves[i].row];
+					checkerboardArray[selectedPieceMoves[i].moveColumn][selectedPieceMoves[i].moveRow] = playerTurn;
+				}
+				else
+				{
+					checkerboardArray[columnSelect][rowSelect] = playerTurn;
+					delete checkerboardArray[selectedPieceMoves[i].column][selectedPieceMoves[i].row];
+				}
 				drawPieces();
 				document.getElementById('checkerboardarray').value = JSON.stringify(checkerboardArray);
 				if (playerTurn == "player1")
@@ -35,28 +59,34 @@ function selectPiece(e)
 	else
 	{
 		if (playerTurn != false)
-		{		
-			
+		{	
 			drawPieces();
-			if ( checkerboardArray[column][row] == playerTurn )
+			for ( var i = 0; i< pieceMoves.length; i++)
 			{
-				if (playerTurn == "player1")
-					drawCircle(40 + 80 * column,40 + 80 * row,30,0,2*Math.PI,"white",canvas,context);
-				else
-					drawCircle(40 + 80 * column,40 + 80 * row,30,0,2*Math.PI,"red",canvas,context);					
-				context.lineWidth = 5;
-	      		context.strokeStyle = 'yellow';
-	      		context.stroke();
-	      		context.lineWidth = 0;
-	      		pieceSelected = true;
-	      		pieceSelectedColumn = column;
-	      		pieceSelectedRow = row;
+				if (pieceMoves[i].row == rowSelect && pieceMoves[i].column == columnSelect)
+				{
+
+					if (playerTurn == "player1")
+						drawCircle(40 + 80 * columnSelect,40 + 80 * rowSelect,30,0,2*Math.PI,"white",canvas,context);
+					else
+						drawCircle(40 + 80 * columnSelect,40 + 80 * rowSelect,30,0,2*Math.PI,"red",canvas,context);	
+					context.lineWidth = 5;
+		      		context.strokeStyle = 'yellow';
+		      		context.stroke();
+		      		context.lineWidth = 0;
+		      		context.fillStyle= "yellow";
+		      		alert(pieceMoves[i].moveRow + ' ' + pieceMoves[i].moveColumn);
+					context.fillRect(80*pieceMoves[i].moveColumn,80*pieceMoves[i].moveRow,80,80);
+					pieceSelected = true;
+					selectedPieceMoves.push(pieceMoves[i]);
+				}
 			}
 		}
 	}
 }
 function getAllMoves(playerTurn)
 {
+	pieceMoves = Array();
 	var attackPossible = false; 
 	for ( var column = 0; column < checkerboardArray.length ; column++)
 	{
@@ -83,17 +113,18 @@ function getAllMoves(playerTurn)
 				}
 				else
 				{
-					if (row < 1)
+					
+					if (row > 1)
 					{
 						if (column > 1 && checkerboardArray[column - 1][row - 1] == "player1" && typeof checkerboardArray[column - 2][row - 2] == "undefined")
 						{
 							attackPossible = true;
-							pieceMoves.push(new piece(playerTurn,property,"attack", row-2, column-2, true));
+							pieceMoves.push(new piece(playerTurn,row,column,"attack", row - 2, column - 2));
 						}
-						if (column < 6 && checkerboardArray[column + 1][row - 1] == "player1" && typeof checkerboardArray[column + 2][row + 2] == "undefined")
+						if (column < 6 && checkerboardArray[column + 1][row - 1] == "player1" && typeof checkerboardArray[column + 2][row - 2] == "undefined")
 						{
 							attackPossible = true;
-						    pieceMoves.push(new piece(playerTurn,row,column,"attack", row + 2, column + 2));
+						    pieceMoves.push(new piece(playerTurn,row,column,"attack", row - 2, column + 2));
 						}
 					}	
 				}
@@ -111,6 +142,7 @@ function getAllMoves(playerTurn)
 				{
 					if (row != 7)
 					{
+						row = parseInt(row);
 						if (column != 0 && typeof checkerboardArray[column - 1][row + 1] == "undefined")
 						{
 							pieceMoves.push(new piece(playerTurn,row,column,"move", row + 1, column - 1));
@@ -138,7 +170,7 @@ function getAllMoves(playerTurn)
 			}
 		}
    	}
-
+   	alert(pieceMoves);
 }
 function piece(playerTurn, row, column, move, moveRow, moveColumn)
 {
