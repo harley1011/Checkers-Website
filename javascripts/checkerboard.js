@@ -22,7 +22,6 @@ if (playerTurn == player)
 	{	
 		for ( var i=0; i < selectedPieceMoves.length; i++)
 		{
-			alert(columnSelect + ' ' + rowSelect);
 			if (selectedPieceMoves[i].moveColumn == columnSelect && selectedPieceMoves[i].moveRow == rowSelect)
 			{
 				if ( selectedPieceMoves[i].move == "attack")
@@ -30,9 +29,8 @@ if (playerTurn == player)
 						
 					if ( selectedPieceMoves[i].playerTurn == "player1")
 					{
-						alert(columnSelect + ' ' + rowSelect);
 						if ( selectedPieceMoves[i].column == columnSelect - 2)
-							delete checkerboardArray[columnSelect - 1][rowSelect -1];-
+							delete checkerboardArray[columnSelect - 1][rowSelect -1];
 						else if (selectedPieceMoves[i].column == columnSelect + 2)
 							delete checkerboardArray[columnSelect + 1][rowSelect -1];
 					}

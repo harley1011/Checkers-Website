@@ -12,6 +12,13 @@ else
 	{
 	require_once("loginsuccess.php");
 	}
+	else
+	{
+		require_once("loginform.php");
+		echo '<script language="javascript">';
+		echo 'alert("Invalid account information.")';
+		echo '</script>';
+	}
 }
 		
 ?>

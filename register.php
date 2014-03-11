@@ -18,6 +18,8 @@ global $errorMessage;
 		$phonenum = $_POST['phonenum'];
 	if(empty($_POST['email']))
 		$errorMessage .= " E-mail is empty.";
+	elseif(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+		$errorMessage .= " E-mail is invalid, not in the right format.";
 	else
 		$email = $_POST['email'];
 	if(empty($_POST['password']))
@@ -28,6 +30,7 @@ global $errorMessage;
 		$errorMessage .= " Passwords do not match.";
 	elseif ( strlen($_POST['password']) < 8 )
 		$errorMessage .= " Password must be greater than 8 characters.";
+
 
 	return empty($errorMessage);
 
