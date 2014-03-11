@@ -31,7 +31,6 @@ function setupCheckerboard()
 			$checkerboard[$i][7] = "player2";			
 		}
 	}
-	echo json_encode($checkerboard);
 	return json_encode($checkerboard);
 }
 ?>

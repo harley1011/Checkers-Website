@@ -7,18 +7,22 @@ var pieceMoves = Array();
 var selectedPieceMoves = Array();
 canvas.addEventListener('click', function(e){ selectPiece(e)}, false);
 var checkerboardArray = eval( "(" + document.getElementById("checkerboardarray").value + ")");
+var player = document.getElementById('player').value;
 function selectPiece(e)
 {
 	var rect = canvas.getBoundingClientRect();
 	var columnSelect = Math.ceil((e.clientX - rect.left) / 80) - 1;
 	var rowSelect = Math.ceil((e.clientY - rect.top) / 80) - 1;
 	var playerTurn = document.getElementById('playerturn').value;
+if (playerTurn == player)
+{
 	getAllMoves(playerTurn);
 
 	if (pieceSelected && checkerboardArray[columnSelect][rowSelect] != playerTurn)
 	{	
 		for ( var i=0; i < selectedPieceMoves.length; i++)
 		{
+			alert(columnSelect + ' ' + rowSelect);
 			if (selectedPieceMoves[i].moveColumn == columnSelect && selectedPieceMoves[i].moveRow == rowSelect)
 			{
 				if ( selectedPieceMoves[i].move == "attack")
@@ -26,17 +30,18 @@ function selectPiece(e)
 						
 					if ( selectedPieceMoves[i].playerTurn == "player1")
 					{
+						alert(columnSelect + ' ' + rowSelect);
 						if ( selectedPieceMoves[i].column == columnSelect - 2)
-							delete checkerboardArray[selectedPieceMoves[i].column - 1][selectedPieceMoves[i].Row +1];
-						else
-							delete checkerboardArray[selectedPieceMoves[i].column  + 1][selectedPieceMoves[i].Row +1];
+							delete checkerboardArray[columnSelect - 1][rowSelect -1];-
+						else if (selectedPieceMoves[i].column == columnSelect + 2)
+							delete checkerboardArray[columnSelect + 1][rowSelect -1];
 					}
 					else
 					{
 						if ( selectedPieceMoves[i].column == columnSelect - 2)
-							delete checkerboardArray[selectedPieceMoves[i].column  - 1][selectedPieceMoves[i].Row -1];
+							delete checkerboardArray[columnSelect  - 1][rowSelect +1];
 						else
-							delete checkerboardArray[selectedPieceMoves[i].column  + 1][selectedPieceMoves[i].Row  -1];
+							delete checkerboardArray[columnSelect + 1][rowSelect  +1];
 					}
 					delete checkerboardArray[selectedPieceMoves[i].column][selectedPieceMoves[i].row];
 					checkerboardArray[selectedPieceMoves[i].moveColumn][selectedPieceMoves[i].moveRow] = playerTurn;
@@ -75,7 +80,6 @@ function selectPiece(e)
 		      		context.stroke();
 		      		context.lineWidth = 0;
 		      		context.fillStyle= "yellow";
-		      		alert(pieceMoves[i].moveRow + ' ' + pieceMoves[i].moveColumn);
 					context.fillRect(80*pieceMoves[i].moveColumn,80*pieceMoves[i].moveRow,80,80);
 					pieceSelected = true;
 					selectedPieceMoves.push(pieceMoves[i]);
@@ -83,6 +87,7 @@ function selectPiece(e)
 			}
 		}
 	}
+}
 }
 function getAllMoves(playerTurn)
 {
@@ -95,8 +100,9 @@ function getAllMoves(playerTurn)
     	{
         	if ( object[row] == playerTurn )
 			{
-				if (playerTurn=="player1")
+				if (player=="player1")
 				{
+					row = parseInt(row);
 					if (row < 6)
 					{
 						if (column > 1 && checkerboardArray[column - 1][row + 1] == "player2" && typeof checkerboardArray[column - 2][row + 2] == "undefined")
@@ -138,7 +144,7 @@ function getAllMoves(playerTurn)
 			var object = checkerboardArray[column];
 	    	for (var row in object) 
 	    	{
-		   		if (playerTurn=="player1")
+		   		if (player=="player1")
 				{
 					if (row != 7)
 					{
@@ -170,7 +176,6 @@ function getAllMoves(playerTurn)
 			}
 		}
    	}
-   	alert(pieceMoves);
 }
 function piece(playerTurn, row, column, move, moveRow, moveColumn)
 {
@@ -181,57 +186,7 @@ function piece(playerTurn, row, column, move, moveRow, moveColumn)
 	this.moveRow = moveRow;
 	this.moveColumn = moveColumn;
 }
-function getMoves(column, row,playerTurn, checkerboardArray)
-{
-	pieceMovesRow = Array();
-	pieceMovesColumn = Array();
-	if (playerTurn=="player1")
-	{
-		if (row != 7)
-		{
 
-			//alert(checkerboardArray[column + 1][row+ 1] );
-			if (column != 0 && typeof checkerboardArray[column - 1][row + 1] == "undefined")
-			{
-				context.fillStyle= "yellow";
-				context.fillRect(80*(column-1),80*(row+1),80,80);
-				pieceMovesColumn.push(column-1);
-				pieceMovesRow.push(row+1);
-			}
-			if (column != 7 && typeof checkerboardArray[column + 1][row + 1] == "undefined")
-			{
-				context.fillStyle= "yellow";
-				context.fillRect(80*(column+1),80*(row+1),80,80);
-				pieceMovesColumn.push(column+1);
-				pieceMovesRow.push(row+1);
-			}
-		}
-	}
-	else 
-	{
-		if (row != 0)
-		{
-
-			//alert(checkerboardArray[column + 1][row+ 1] );
-			if (column != 0 && typeof checkerboardArray[column - 1][row-1] == "undefined")
-			{
-				context.fillStyle= "yellow";
-				context.fillRect(80*(column-1),80*(row-1),80,80);
-				pieceMovesColumn.push(column-1);
-				pieceMovesRow.push(row-1);
-			}
-			if (column != 7 && typeof checkerboardArray[column + 1][row-1] == "undefined")
-			{
-				context.fillStyle= "yellow";
-				context.fillRect(80*(column+1),80*(row-1),80,80);
-				pieceMovesColumn.push(column+1);
-				pieceMovesRow.push(row-1);
-			}
-		}
-	}
-	return ( pieceMovesRow.length > 0);
-
-}
 function drawBoard()
 {
 	context.clearRect ( 0 , 0 , 640 , 640 );
