@@ -1,1 +1,4 @@
-player1:harley.101@hotmail.com player2: doug@gmail.com turn:harley.101@hotmail.com [{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"}] 
+player1:harley.101@hotmail.com player2:donald@gmail.com turn:donald@gmail.com [{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","4":"player1","6":"player2"},{"1":"player1","7":"player2"},{"0":"player1","2":"player1","4":"player2","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"}] 
+
+
+

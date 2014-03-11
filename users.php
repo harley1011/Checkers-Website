@@ -22,9 +22,9 @@ if ($file) {
                 <td>' . $email . '&nbsp;</td>
                 <td>' . $win . ' Wins ' . $loss . ' Loses </td>';
                 if ((isset($_SESSION['email']) && preg_match('/' . $_SESSION['email'] . '/',$fileText) == 1 ) || preg_match('/' . $email . '/',$fileText) == 1)
-                    echo '<td><form action="viewgame.php" method="post"><input type="submit" value="View Game" /><input type="hidden" name="email" value=" ' .  $email . '"/></td></form></tr>';
+                    echo '<td><form action="viewgame.php" method="post"><input type="submit" value="View Game" /><input type="hidden" name="email" value="' .  $email . '"/></td></form></tr>';
                 else
-                    echo '<td><form action="challenge.php" method="post"><input type="submit" value="Challenge"/><input type="hidden" name="email" value=" ' .   $email . '"/></td></form></tr>';
+                    echo '<td><form action="challenge.php" method="post"><input type="submit" value="Challenge"/><input type="hidden" name="email" value="' .   $email . '"/></td></form></tr>';
 
     }
     fclose($file);
