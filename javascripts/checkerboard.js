@@ -5,9 +5,11 @@ var pieceSelectedColumn;
 var pieceSelectedRow;
 var pieceMoves = Array();
 var selectedPieceMoves = Array();
+if ( document.getElementById('gameOrView').value == "true")
 canvas.addEventListener('click', function(e){ selectPiece(e)}, false);
 var checkerboardArray = eval( "(" + document.getElementById("checkerboardarray").value + ")");
 var player = document.getElementById('player').value;
+drawPieces();
 function selectPiece(e)
 {
 	var rect = canvas.getBoundingClientRect();
@@ -27,7 +29,7 @@ if (playerTurn == player)
 				if ( selectedPieceMoves[i].move == "attack")
 				{
 						
-					if ( selectedPieceMoves[i].playerTurn == "player1")
+					if ( selectedPieceMoves[i].row == selectedPieceMoves[i].moveRow - 2)
 					{
 						if ( selectedPieceMoves[i].column == columnSelect - 2)
 							delete checkerboardArray[columnSelect - 1][rowSelect -1];
@@ -98,40 +100,38 @@ function getAllMoves(playerTurn)
     	{
         	if ( object[row] == playerTurn )
 			{
+				var otherPlayer;
 				if (player=="player1")
+					otherPlayer="player2";
+				else
+					otherPlayer="player1";
+				row = parseInt(row);
+				if (row < 6)
 				{
-					row = parseInt(row);
-					if (row < 6)
+					if (column > 1 && checkerboardArray[column - 1][row + 1] == otherPlayer && typeof checkerboardArray[column - 2][row + 2] == "undefined")
 					{
-						if (column > 1 && checkerboardArray[column - 1][row + 1] == "player2" && typeof checkerboardArray[column - 2][row + 2] == "undefined")
-						{
-							attackPossible = true;
-							pieceMoves.push(new piece(playerTurn,row,column,"attack", row + 2, column - 2));
-						}
-						if (column < 6 && checkerboardArray[column + 1][row + 1] == "player2" && typeof checkerboardArray[column + 2][row + 2] == "undefined")
-						{
-							attackPossible = true;
-						    pieceMoves.push(new piece(playerTurn,row,column,"attack", row + 2, column + 2));
-						}
+						attackPossible = true;
+						pieceMoves.push(new piece(playerTurn,row,column,"attack", row + 2, column - 2));
+					}
+					if (column < 6 && checkerboardArray[column + 1][row + 1] == otherPlayer && typeof checkerboardArray[column + 2][row + 2] == "undefined")
+					{
+						attackPossible = true;
+					    pieceMoves.push(new piece(playerTurn,row,column,"attack", row + 2, column + 2));
 					}
 				}
-				else
+				if (row > 1)
 				{
-					
-					if (row > 1)
+					if (column > 1 && checkerboardArray[column - 1][row - 1] == otherPlayer && typeof checkerboardArray[column - 2][row - 2] == "undefined")
 					{
-						if (column > 1 && checkerboardArray[column - 1][row - 1] == "player1" && typeof checkerboardArray[column - 2][row - 2] == "undefined")
-						{
-							attackPossible = true;
-							pieceMoves.push(new piece(playerTurn,row,column,"attack", row - 2, column - 2));
-						}
-						if (column < 6 && checkerboardArray[column + 1][row - 1] == "player1" && typeof checkerboardArray[column + 2][row - 2] == "undefined")
-						{
-							attackPossible = true;
-						    pieceMoves.push(new piece(playerTurn,row,column,"attack", row - 2, column + 2));
-						}
-					}	
-				}
+						attackPossible = true;
+						pieceMoves.push(new piece(playerTurn,row,column,"attack", row - 2, column - 2));
+					}
+					if (column < 6 && checkerboardArray[column + 1][row - 1] == otherPlayer && typeof checkerboardArray[column + 2][row - 2] == "undefined")
+					{
+						attackPossible = true;
+					    pieceMoves.push(new piece(playerTurn,row,column,"attack", row - 2, column + 2));
+					}
+				}	
 	        }
 		}
    	}
