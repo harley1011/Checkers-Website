@@ -207,7 +207,6 @@ function drawPieces()
 	{
 		var object = checkerboardArray[c];
     	for (var property in object) {
-        //alert('item ' + c + ': ' + property + '=' + object[property]);
         	if ( object[property] == "player1" )
 					drawCircle(circleXPos + 80 * c,circleYPos + 80 * property,30,0,2*Math.PI,"white",canvas,context);
 				else

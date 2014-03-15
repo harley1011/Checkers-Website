@@ -1,4 +1,17 @@
-player1:jess@loser.com player2:harley.101@hotmail.com turn:jess@loser.com [{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1"},{"1":"player1","7":"player2"},{"0":"player1","2":"player1","4":"player2","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"}] 
+player1:jess@loser.com player2:harley.101@hotmail.com turn:harley.101@hotmail.com [{"0":"player1","6":"player2"},{"3":"player1","7":"player2"},{"0":"player1"},{"7":"player2"},{"0":"player1","4":"player2"},{"1":"player1","7":"player2"},{"0":"player1"},{"1":"player1","5":"player2","7":"player2"}] 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+if (session_id() === "") {
     session_start();
 }
 ?>
@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/mainstyle.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/mainstyle.css" />
 </head>
 <body id="top" onload="setTime()">
     <div id="centerpage">

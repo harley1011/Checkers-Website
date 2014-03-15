@@ -6,7 +6,7 @@ global $player;
 global $checkerboard;
 global $movesAllowed;
 
-if (isset($_POST['email']) && $_POST['email'] != $_SESSION['email'])
+if (isset($_POST['email']) && (!isset($_SESSION['email']) || $_POST['email'] != $_SESSION['email']))
 {
     $file = file_get_contents("challenge.txt");
     $array;
@@ -86,6 +86,9 @@ elseif (isset($_SESSION['email']))
      }
      else
         echo "No game currently in progress. You must challenge someone or view someones game go to the users section to do this.";
+}
+else
+{ echo "You must login first to play a game.";
 }
 ?>
 <form id="myForm" name="myForm"  action="" method="post"> 
