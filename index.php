@@ -18,7 +18,9 @@ if (isset($_POST['email']) && (!isset($_SESSION['email']) || $_POST['email'] != 
     preg_match('/player1:([^\s])+/', $array[0], $turn);
     $emailWhitePlayer = preg_replace("/player1:/", "", $turn[0]);
     preg_match('/\[(.*?)\]/', $array[0], $checkerboard);
-    echo ($emailWhitePlayer . ' is white and ' . $emailRedPlayer . ' is red.'); 
+    preg_match('/turn:([^\s])+/', $array[0], $turn);
+    $playerTurn = $turn[0];
+    echo ($emailWhitePlayer . ' is white and ' . $emailRedPlayer . '. ' . $playerTurn ); 
     $movesAllowed = "false";      
 }
 elseif (isset($_SESSION['email']))
@@ -52,8 +54,8 @@ elseif (isset($_SESSION['email']))
     $array;
      if ( preg_match('/' . $_SESSION['email'] . '/',$file) == 1 )
      {
-     	preg_match("/" . $_SESSION['email'] . '([^\n])+/', $file, $array);
-     	preg_match('/turn:([^\s])+/', $array[0], $turn);
+        preg_match("/" . $_SESSION['email'] . '([^\n])+/', $file, $array);
+        preg_match('/turn:([^\s])+/', $array[0], $turn);
         $playerTurnEmail = preg_replace("/turn:/", "", $turn[0]);
         if ( preg_match("/player1:" . $_SESSION['email'] . "/", $file) == 1 )
                 $playerTurn = "player1";
@@ -79,7 +81,7 @@ elseif (isset($_SESSION['email']))
         }
         else
         {   
-     	    echo "It is not your turn, it is " . $playerTurnEmail . ". Refresh page to see if turn has been made";
+            echo "It is not your turn, it is " . $playerTurnEmail . ". Refresh page to see if turn has been made";
         }
         preg_match('/\[(.*?)\]/', $array[0], $checkerboard);
 
