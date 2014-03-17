@@ -6,7 +6,7 @@ for(var i = 0; i < inputs.length; i +=1)
 {
   if (inputs[i].value ==null || inputs[i].value =="")
   {
-  	alert("The field " + errors[i] + " can not be blank." + i );
+  	alert("The field " + errors[i] + " can not be blank." );
   	return false;
   }
   if ( i == 2 && !inputs[2].value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))

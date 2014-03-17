@@ -1,5 +1,4 @@
-fname:Harley lname:McPhee phonenum:514-833-6651 email:harley.101@hotmail.com password:harleymcphee win:0 loss:0 
-fname:Donald lname:Duck phonenum:232-2322-1234 email:donald@gmail.com password:DONALDDUCK win:0 loss:0 
-fname:Doug lname:Chandler phonenum:doug@gmail.com email:doug@gmail.com password:dougchandler win:0 loss:0 
-fname:Jessica lname:Ronci phonenum:322-222-2121 email:jess@loser.com password:jessica12 win:0 loss:0 
-fname:Fox lname:Test phonenum:232-122-1211 email:fox@gmail.com password:harleymcphee win:0 loss:0 
+fname:Harley lname:McPhee phonenum:514-232-2112 email:harley.101@hotmail.com password:harleymcphee win:0 loss:0 
+fname:Doug lname:Chandler phonenum:232-121-1212 email:doug@gmail.com password:dougchandler win:0 loss:0 
+fname:Moe lname:Marison phonenum:123-232-2321 email:moe@gmail.com password:moemarison win:0 loss:0 
+fname:John lname:Gray phonenum:232-1223-2342 email:john@gmail.com password:johngray win:0 loss:0 

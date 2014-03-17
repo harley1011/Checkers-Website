@@ -2,7 +2,7 @@
 require_once("headerlayout.php");
 ?>
 
-<form name="myForm"  action="" method="post">
+<form name="myForm" onsubmit="validateForm()"  action="" method="post">
     <div id="labelBox">
         First Name:</br>
         Last Name:</br>
@@ -21,6 +21,7 @@ require_once("headerlayout.php");
     <input type="submit"  value="Submit"/></br>
     </div>
 </form>
+ <script src="javascripts/validateForm.js"></script>
 <?php
 require_once("footerlayout.php");
 ?>
