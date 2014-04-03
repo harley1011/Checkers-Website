@@ -22,94 +22,9 @@ player1:moe@gmail.com player2:john@gmail.com turn:moe@gmail.com [{"0":"player1",
 
 
 
+player1:jason@gmail.com player2:jane@gmail.com turn:jane@gmail.com [{"0":"player1","2":"player1","6":"player2"},{"1":"player1","3":"player1","5":"player2","7":"player2"},{"0":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"}] 
 
 
+player1:lilly@gmail.com player2:simongreen@gmail.com turn:simongreen@gmail.com [{"0":"player1","2":"player1","6":"player2"},{"1":"player1","3":"player1","5":"player2","7":"player2"},{"0":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"}] 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-player1:harley.101@hotmail.com player2:doug@gmail.com turn:doug@gmail.com [{"0":"player1","2":"player1","6":"player2"},{"7":"player2"},{"0":"player1"},{"7":"player2"},{"0":"player1"},{"3":"player1","7":"player2"},{"0":"player1","6":"player2"},{"5":"player2","7":"player2"}] 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+player1:harley.101@hotmail.com player2:doug@gmail.com turn:harley.101@hotmail.com [{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"},{"0":"player1","2":"player1","6":"player2"},{"1":"player1","5":"player2","7":"player2"}] 

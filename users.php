@@ -1,36 +1,18 @@
 <?php
 require_once("headerlayout.php");
 ?>
-<?php
-echo '<table border="0">';
-$file = fopen("members.txt", "r");
-$fileText = file_get_contents("challenge.txt");
-if ($file) {
-    while (($buffer = fgets($file)) !== false) {
-        $emailArray = array();
-        preg_match("/email:([^\s]+)/", $buffer, $emailArray);
-        $email = preg_replace("/email:/", "", $emailArray[0]);
-        $winArray = array();
-        preg_match("/win:([^\s]+)/", $buffer, $winArray);
-        $win = preg_replace("/win:/", "", $winArray[0]);
-        $lossArray = array();
-        preg_match("/win:([^\s]+)/", $buffer, $lossArray);
-        $loss = preg_replace("/win:/", "", $lossArray[0]);
-        $_POST['email'] = $email;
-        echo   '<tr>
-                <td><img id="tableimg" src="images/defaultuserpicture.png" alt="pic"/></td>
-                <td>' . $email . '&nbsp;</td>
-                <td>' . $win . ' Wins ' . $loss . ' Loses </td>';
-                if ((isset($_SESSION['email']) && preg_match('/' . $_SESSION['email'] . '/',$fileText) == 1 ) || preg_match('/' . $email . '/',$fileText) == 1)
-                    echo '<td><form action="index.php" method="post"><input type="submit" value="View Game" /><input type="hidden" name="email" value="' .  $email . '"/></td></form></tr>';
-                else
-                    echo '<td><form action="challenge.php" method="post"><input type="submit" value="Challenge"/><input type="hidden" name="email" value="' .   $email . '"/></td></form></tr>';
 
-    }
-    fclose($file);
-}
-echo '</table>';
-?>
+<table id="userList" border="0">
+
+</table>
+<button type="button" onclick="firstPage()">First</button>
+<button type="button" onclick="prevPage()">Prev</button>
+<span id="pageNumber">1</span>
+<button type="button" onclick="nextPage()">Next</button>
+<button type="button" onclick="lastPage()">Last</button>
+<button type="button" onclick="test()">Test</button>
+  <script type="text/javascript" src="javascripts/navigationcontrols.js">
+   </script>
 <?php
 require_once("footerlayout.php");
 ?>

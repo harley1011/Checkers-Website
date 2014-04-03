@@ -59,6 +59,7 @@ if (playerTurn == player)
 					document.getElementById('playerturn').value = "player2";
 				else
 					document.getElementById('playerturn').value = "player1";
+				//ajaxMakeMove();
 				document.getElementById('myForm').submit();
 			}
 		}
@@ -259,4 +260,18 @@ function updateCheckerboard()
 		  xmlhttp.send();
 	}
 	  
+}
+function ajaxMakeMove()
+{
+	var xmlhttp;
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		  xmlhttp.open("POST","checkerboard.php",true);
+		  xmlhttp.send();
 }

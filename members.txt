@@ -2,3 +2,14 @@ fname:Harley lname:McPhee phonenum:514-232-2112 email:harley.101@hotmail.com pas
 fname:Doug lname:Chandler phonenum:232-121-1212 email:doug@gmail.com password:dougchandler win:0 loss:0 
 fname:Moe lname:Marison phonenum:123-232-2321 email:moe@gmail.com password:moemarison win:0 loss:0 
 fname:John lname:Gray phonenum:232-1223-2342 email:john@gmail.com password:johngray win:0 loss:0 
+fname:Ken lname:Kan phonenum:232-342-4323 email:ken@gmail.com password:kenkanken win:0 loss:0 
+fname:Jeremy lname:Jones phonenum:232-122-3442 email:jeremy@gmail.com password:jeremyjones win:0 loss:0 
+fname:Tyler lname:Gray phonenum:934-234-5423 email:tyler@gmail.com password:tylergray win:0 loss:0 
+fname:Jason lname:Turnip phonenum:453-543-8742 email:jason@gmail.com password:jasonturnip win:0 loss:0 
+fname:soen lname:soen phonenum:674-345-7832 email:soen287@soen287.com password:soen287p win:0 loss:0 
+fname:bob lname:fred phonenum:678-895-4930 email:bobfred@soen287.com password:soen287p win:0 loss:0 
+fname:Thomson lname:Simon phonenum:578-456-9843 email:thomson@gmail.com password:thomsonsimon win:0 loss:0 
+fname:Simon lname:Green phonenum:763-232-3444 email:simongreen@gmail.com password:simongreen win:0 loss:0 
+fname:Lilly lname:Lully phonenum:783-232-5432 email:lilly@gmail.com password:lillylully win:0 loss:0 
+fname:Jane lname:Foster phonenum:454-223-8749 email:jane@gmail.com password:janefoster win:0 loss:0 
+fname:George lname:Takei phonenum:453-222-1111 email:george@gmail.com password:georgetakei win:0 loss:0 
