@@ -10,8 +10,10 @@ canvas.addEventListener('click', function(e){ selectPiece(e)}, false);
 var checkerboardArray = eval( "(" + document.getElementById("checkerboardarray").value + ")");
 var player = document.getElementById('player').value;
 drawPieces();
+checkerboardSetAjaxCall();
 function selectPiece(e)
 {
+
 	var rect = canvas.getBoundingClientRect();
 	var columnSelect = Math.ceil((e.clientX - rect.left) / 80) - 1;
 	var rowSelect = Math.ceil((e.clientY - rect.top) / 80) - 1;
@@ -199,9 +201,11 @@ function drawBoard()
 }
 function drawPieces()
 {
+	canvas = document.getElementById("checkerboard");
+    context = canvas.getContext("2d");
 	drawBoard();
 	var circleXPos = 40;
-
+	//alert("here");
 	var circleYPos = 40;
 	for ( var c = 0; c < checkerboardArray.length ; c++)
 	{
@@ -221,4 +225,38 @@ function drawCircle(x, y, r, t,a, color,canvas,context )
 	context.beginPath();
 	context. arc(x,y,r,0,a);
 	context.fill();	
+}
+function checkerboardSetAjaxCall()
+{
+	 setInterval(function(){updateCheckerboard()},5000);
+}
+function updateCheckerboard()
+{
+	if (document.getElementById('player').value != document.getElementById('playerturn').value)
+	{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		  xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    document.getElementById("content").innerHTML = xmlhttp.responseText;
+		   	checkerboardArray = eval( "(" + document.getElementById("checkerboardarray").value + ")");
+			 player = document.getElementById('player').value;
+		   //alert(xmlhttp.responseText)
+		    drawPieces();
+		     canvas.addEventListener('click', function(e){ selectPiece(e)}, false);
+		    }
+		  }
+		  xmlhttp.open("GET","checkerboard.php",true);
+		  xmlhttp.send();
+	}
+	  
 }

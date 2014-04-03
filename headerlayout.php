@@ -42,4 +42,4 @@ if (session_id() === "") {
                     <li><a href="register.php">Register</a></li>
                 </ul>
             </nav>
-            <article>
+            <article id="content">
