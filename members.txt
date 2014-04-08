@@ -13,3 +13,4 @@ fname:Simon lname:Green phonenum:763-232-3444 email:simongreen@gmail.com passwor
 fname:Lilly lname:Lully phonenum:783-232-5432 email:lilly@gmail.com password:lillylully win:0 loss:0 
 fname:Jane lname:Foster phonenum:454-223-8749 email:jane@gmail.com password:janefoster win:0 loss:0 
 fname:George lname:Takei phonenum:453-222-1111 email:george@gmail.com password:georgetakei win:0 loss:0 
+fname:Janet lname:Jonson phonenum:546-590-4534 email:janet@gmail.com password:janetjonson win:0 loss:0 

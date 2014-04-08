@@ -83,7 +83,7 @@ elseif (isset($_SESSION['email']))
         }
         else
         {   
-     	    echo "It is not your turn, it is " . $playerTurnEmail . ". Refresh page to see if turn has been made";
+     	    echo "It is not your turn, it is " . $playerTurnEmail . ".";
         }
         preg_match('/\[(.*?)\]/', $array[0], $checkerboard);
 
@@ -102,8 +102,7 @@ else
 <input id="checkerboardarray" type="hidden" name="checkerboardarray" value=<?php echo $checkerboard[0]?> />
 <input id="player" type="hidden" name="playerturn" value=<?php echo $player ?> />
 <input id="playerturn" type="hidden" name="playerturn" value=<?php echo $playerTurn?> />
-<input id="gameOrView" type="hidden"  value=<?php echo $movesAllowed?> />
-<label id="test"> here</label>  
+<input id="gameOrView" type="hidden"  value=<?php echo $movesAllowed?> /> 
 </form>
 
  

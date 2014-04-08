@@ -4,11 +4,11 @@ $fileText = file_get_contents("challenge.txt");
 $users = array();
 if ($file) {
     $offset = $_REQUEST['page'] * 5;
-    $position = 0;
+    $position = 2;
     $counter = 0;
     while (($buffer = fgets($file)) !== false) {
 
-        if ( $counter >= $offset && $position != 5)
+        if ( $counter >= $offset && $position != 7)
         {
 
             $emailArray = array();
@@ -32,11 +32,13 @@ if ($file) {
                                        "win"=>$win,
                                        "loss"=>$loss,
                                        "buttontype"=>$challengeOrView);
+            $users[1] = $position - 2;
+
         }
         $counter++;
     }
     fclose($file);
-
+    $users[0] = $counter;
     echo json_encode($users);
 }
 ?>

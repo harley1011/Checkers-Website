@@ -1,11 +1,9 @@
 var xmlhttp;
 var targetPage;
+var numberOfUsers = 0;
+var numberOfUsersPerPage = 5;
 loadUsers(0);
-function test()
-{
-	 	alert("hes");
-	loadUsers(0);
-}
+
 function firstPage()
 {
 	loadUsers(0);
@@ -17,17 +15,15 @@ function prevPage()
 }
 function nextPage()
 {
+	if ( targetPage <= numberOfUsers / numberOfUsersPerPage)
 	loadUsers(targetPage+1);
-
 }
 function lastPage()
 {
-
-
+	loadUsers(Math.ceil(numberOfUsers/numberOfUsersPerPage) - 1);
 }
 function loadUsers(pageNumber)
 {
-	
 	targetPage = pageNumber;
  	xmlhttp=new XMLHttpRequest();
  	xmlhttp.onreadystatechange=ajaxCallback;
@@ -41,14 +37,44 @@ function ajaxCallback() {
 		showUsers(JSON.parse(xmlhttp.responseText));
     }
 }
+function enableOrDisableControls()
+{
+	if ( targetPage == 0)
+	{
+		document.getElementById("firstButton").disabled = true;
+		document.getElementById("prevButton").disabled = true;
+	}
+	else
+	{
+		document.getElementById("firstButton").disabled = false;
+		document.getElementById("prevButton").disabled = false;
+	}
+	if (targetPage >= numberOfUsers/numberOfUsersPerPage -1)
+	{
+		document.getElementById("lastButton").disabled = true;
+		document.getElementById("nextButton").disabled = true;
+	}
+	else
+	{
+		document.getElementById("lastButton").disabled = false;
+		document.getElementById("nextButton").disabled = false;
+	}
 
+
+
+
+}
 function showUsers(result) {
 	var table = document.getElementById("userList");
 	while(table.childNodes.length >0) {
 		table.removeChild(table.firstChild);
 	}
-	
-	for ( var i = 0; i < 5; i++)
+	var numberOfUsersOnPage = result[1];
+	numberOfUsers = result[0];
+	var paging = document.getElementById("pageNumber");
+	paging.innerHTML = targetPage+1 + ' of ' + Math.ceil(numberOfUsers/ numberOfUsersPerPage);
+	enableOrDisableControls(); 
+	for ( var i = 2; i < numberOfUsersOnPage + 2; i++)
 	{
 		var tr = document.createElement("tr");
 		var tdImg = document.createElement("td");
@@ -62,7 +88,7 @@ function showUsers(result) {
 		tdWin.innerHTML = " Wins: " +  result[i].win;
 		tdLoss.innerHTML = " Loss: " + result[i].loss;
 		if (result[i].buttontype == "view")
-			tdButton.innerHTML = '<form action="index.php" method="post"><input type="submit" value="View Game" /><input type="hidden" name="email" value="' +  result[i].email + '"/></td></form>';
+			tdButton.innerHTML = '<td><form action="checkerboardview.php" method="post"><input type="submit" value="View Game" /><input type="hidden" name="email" value="' +  result[i].email + '"/></td></form>';
 		else
 			tdButton.innerHTML = '<td><form action="challenge.php" method="post"><input type="submit" value="Challenge"/><input type="hidden" name="email" value="' +   result[i].email + '"/></td></form>';
 		tr.appendChild(tdImg);
@@ -73,8 +99,7 @@ function showUsers(result) {
 
 		table.appendChild(tr);
 	}
-		var paging = document.getElementById("pageNumber");
-		paging.innerHTML = targetPage+1; 
+
 	
 }
 

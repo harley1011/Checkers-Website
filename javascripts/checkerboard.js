@@ -59,8 +59,8 @@ if (playerTurn == player)
 					document.getElementById('playerturn').value = "player2";
 				else
 					document.getElementById('playerturn').value = "player1";
-				//ajaxMakeMove();
-				document.getElementById('myForm').submit();
+				ajaxMakeMove();
+				//document.getElementById('myForm').submit();
 			}
 		}
 	}
@@ -229,6 +229,7 @@ function drawCircle(x, y, r, t,a, color,canvas,context )
 }
 function checkerboardSetAjaxCall()
 {
+	
 	 setInterval(function(){updateCheckerboard()},5000);
 }
 function updateCheckerboard()
@@ -256,7 +257,8 @@ function updateCheckerboard()
 		     canvas.addEventListener('click', function(e){ selectPiece(e)}, false);
 		    }
 		  }
-		  xmlhttp.open("GET","checkerboard.php",true);
+		  	if (document.getElementById('player').value != "view")
+		  		xmlhttp.open("GET","checkerboard.php",true);
 		  xmlhttp.send();
 	}
 	  
@@ -272,6 +274,22 @@ function ajaxMakeMove()
 		  {// code for IE6, IE5
 		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		  }
+		  var params = "checkerboardarray="+document.getElementById('checkerboardarray').value+"&playerturn="+document.getElementById('playerturn').value;
 		  xmlhttp.open("POST","checkerboard.php",true);
-		  xmlhttp.send();
+		  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		  xmlhttp.setRequestHeader("Content-length", params.length);
+          xmlhttp.setRequestHeader("Connection", "close");
+		  xmlhttp.send(params);
+		   xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    document.getElementById("content").innerHTML = xmlhttp.responseText;
+		   	checkerboardArray = eval( "(" + document.getElementById("checkerboardarray").value + ")");
+			 player = document.getElementById('player').value;
+		   //alert(xmlhttp.responseText)
+		    drawPieces();
+		     canvas.addEventListener('click', function(e){ selectPiece(e)}, false);
+		    }
+		  }
 }
